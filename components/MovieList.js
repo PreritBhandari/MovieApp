@@ -6,10 +6,10 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Image,
-  Modal,
   ScrollView,
 } from "react-native";
 import { ListItem, Button } from "native-base";
+import Modal from "react-native-modal";
 
 export default class MovieList extends Component {
   constructor(props) {
@@ -48,9 +48,12 @@ export default class MovieList extends Component {
     return (
       <View style={styles.container}>
         <Modal
-          animationType="fade"
-          transparent
-          visible={this.state.modalOpened}
+          animationIn="slideInRight"
+          isVisible={this.state.modalOpened}
+          swipeDirection="right"
+          hideModalContentWhileAnimating={true}
+          swipeThreshold={70}
+          onSwipeMove={() => this.modalClose()}
         >
           <TouchableOpacity
             style={{
@@ -63,9 +66,9 @@ export default class MovieList extends Component {
               <View
                 style={{
                   backgroundColor: "#323232",
-                  marginTop: "36%",
-                  height: "90%",
-                  width: "100%",
+
+                  height: "110%",
+                  width: "110%",
                 }}
               >
                 <ListItem>
@@ -73,7 +76,7 @@ export default class MovieList extends Component {
                     style={{
                       color: "white",
                       fontSize: 25,
-                      marginTop: 20,
+                      marginTop: 60,
                     }}
                   >
                     {detailData.Title} &nbsp;&nbsp;
