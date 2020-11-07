@@ -52,7 +52,6 @@ export default class MovieList extends Component {
           isVisible={this.state.modalOpened}
           swipeDirection="right"
           hideModalContentWhileAnimating={true}
-          swipeThreshold={70}
           onSwipeMove={() => this.modalClose()}
         >
           <TouchableOpacity
