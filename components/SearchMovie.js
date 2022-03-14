@@ -27,7 +27,7 @@ export default class SearchMovie extends Component {
     const { search, searchData } = this.state;
 
     return (
-      <View>
+      <View style={{ display: "flex" }}>
         {/* <Text style={{ fontSize: 30, color: "white", padding: 15 }}>
           Search
         </Text> */}
@@ -38,11 +38,14 @@ export default class SearchMovie extends Component {
           autoCompleteType="off"
         />
 
-        <FlatList
-          data={searchData}
-          renderItem={({ item }) => <MovieList item={item} />}
-          keyExtractor={(item) => item.imdbID}
-        />
+        <View style={{ display: "flex", marginBottom: 130 }}>
+          <FlatList
+            data={searchData}
+            renderItem={({ item }) => <MovieList item={item} />}
+            keyExtractor={(item) => item.imdbID}
+          />
+
+        </View>
       </View>
     );
   }

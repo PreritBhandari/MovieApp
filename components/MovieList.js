@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { ListItem, Button } from "native-base";
 import Modal from "react-native-modal";
+import { Ionicons } from "react-native-vector-icons";
 
 export default class MovieList extends Component {
   constructor(props) {
@@ -48,11 +49,12 @@ export default class MovieList extends Component {
     return (
       <View style={styles.container}>
         <Modal
-          animationIn="slideInRight"
+
+          // animationIn="slideInRight"
           isVisible={this.state.modalOpened}
-          swipeDirection="right"
-          hideModalContentWhileAnimating={true}
-          onSwipeMove={() => this.modalClose()}
+        // swipeDirection="right"
+        // hideModalContentWhileAnimating={true}
+        // onSwipeMove={() => this.modalClose()}
         >
           <TouchableOpacity
             style={{
@@ -65,7 +67,6 @@ export default class MovieList extends Component {
               <View
                 style={{
                   backgroundColor: "#323232",
-
                   height: "110%",
                   width: "110%",
                 }}
@@ -75,9 +76,16 @@ export default class MovieList extends Component {
                     style={{
                       color: "white",
                       fontSize: 25,
-                      marginTop: 60,
+                      marginTop: 30,
                     }}
                   >
+                    <Ionicons
+                      color="yellow"
+                      name="arrow-back-circle"
+                      size={35}
+                      onPress={() => this.modalClose()}
+                    />
+                    {"  "}
                     {detailData.Title} &nbsp;&nbsp;
                     <Button
                       success
@@ -104,7 +112,7 @@ export default class MovieList extends Component {
                     </Text>
                   </Text>
                 </ListItem>
-                <ScrollView showsVerticalScrollIndicator="false">
+                <ScrollView >
                   <ListItem>
                     <Image
                       style={{ width: 150, height: 300 }}
